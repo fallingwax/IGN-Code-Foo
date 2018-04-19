@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: shareddb-h.hosting.stackcp.net
--- Generation Time: Apr 16, 2018 at 02:04 AM
+-- Generation Time: Apr 19, 2018 at 05:54 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 5.6.32
 
@@ -113,14 +113,26 @@ DELIMITER ;
 -- Indexes for table `RssFeedContent`
 --
 ALTER TABLE `RssFeedContent`
-  ADD PRIMARY KEY (`rssID`);
-COMMIT;
+  ADD PRIMARY KEY (`rssID`),
+  ADD UNIQUE KEY `GUID_2` (`GUID`),
+  ADD KEY `GUID` (`GUID`);
 
 --
 -- Indexes for table `Thumbnails`
 --
 ALTER TABLE `Thumbnails`
-  ADD PRIMARY KEY (`thumbnailID`);
+  ADD PRIMARY KEY (`ThumbnailID`),
+  ADD KEY `GUID` (`GUID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Thumbnails`
+--
+ALTER TABLE `Thumbnails`
+  ADD CONSTRAINT `GUID` FOREIGN KEY (`GUID`) REFERENCES `RssFeedContent` (`GUID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
