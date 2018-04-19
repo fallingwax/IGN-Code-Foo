@@ -106,13 +106,13 @@ function getContent() {
                 } else {
                     $tags = "";
                 }
+                setRssFeedContent($config, $GUID, $category, $title, $description, $dateToSave, $link, $slug, $networks, $state, $tags);
                 $thumbnailCompact = [$rss->xpath('//ign:thumbnail')[$t]->attributes()['link'],$rss->xpath('//ign:thumbnail')[$t]->attributes()['size'],$rss->xpath('//ign:thumbnail')[$t]->attributes()['width'],$rss->xpath('//ign:thumbnail')[$t]->attributes()['height']];
                 setThumnails($config, $GUID, $thumbnailCompact);
                 $thumbnailMedium = [$rss->xpath('//ign:thumbnail')[$t+1]->attributes()['link'],$rss->xpath('//ign:thumbnail')[$t+1]->attributes()['size'],$rss->xpath('//ign:thumbnail')[$t+1]->attributes()['width'],$rss->xpath('//ign:thumbnail')[$t+1]->attributes()['height']];
                 setThumnails($config, $GUID, $thumbnailMedium);
                 $thumbnailLarge = [$rss->xpath('//ign:thumbnail')[$t+2]->attributes()['link'],$rss->xpath('//ign:thumbnail')[$t+2]->attributes()['size'],$rss->xpath('//ign:thumbnail')[$t+2]->attributes()['width'],$rss->xpath('//ign:thumbnail')[$t+2]->attributes()['height']];
                 setThumnails($config, $GUID, $thumbnailLarge);
-                setRssFeedContent($config, $GUID, $category, $title, $description, $dateToSave, $link, $slug, $networks, $state, $tags);
                 $t += 3;   
             }
     }
