@@ -12,4 +12,4 @@ The file "ign-content-db-333186af.sql" is an export of the database that can be 
 
 The config.php contains four variables for storing the username, password, server name or IP, and the database name. This file on a production server would be hidden from the end user most likely behind an .htaccess file.
 
-Once the databse is created and the config is populated with the correct credentials you only need to run the rssPull.php twice. The first time will grab the data for RssFeedContent and the second will grab the thumbnails due to the Foreign key constraints.   
+Once the databse is created and the config is populated with the correct credentials you only need to run the rssPull.php.
